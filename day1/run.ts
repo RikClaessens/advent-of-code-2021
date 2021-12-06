@@ -17,7 +17,7 @@ const countDeltas = numbers => {
       decrease += 1;
     } 
   }
-  console.log({ increase, decrease })
+  return increase;
 }
 
 const createSlidingWindows = numbers => {
@@ -31,8 +31,10 @@ const createSlidingWindows = numbers => {
 
 (() => {
 	const input = getInput();
-  countDeltas(input);
+  const part1 = countDeltas(input);
+  console.log('Part 1: ', part1);
 
   const slidingWindows = createSlidingWindows(input);
-  countDeltas(slidingWindows);
+  const part2 = countDeltas(slidingWindows);
+  console.log('Part 2: ', part2);
 })();

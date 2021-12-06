@@ -36,13 +36,14 @@ const evolveEfficient = (fishes: number[], daysToEvolve: number) => {
     fishCounts[6] += fishesToAdd;
     // console.log(`Day ${day + 1}:`, fishCounts.join(', '));
   }
-  console.log({ fishCounts });
-  const numberOfFish = fishCounts.reduce((sum, fishCount) => sum + fishCount, 0);
-  console.log('Part 1:', numberOfFish);
+  return fishCounts.reduce((sum, fishCount) => sum + fishCount, 0);
 }
 
 (() => {
   const fishes = getInput();
   // evolve(fishes, 80);
-  evolveEfficient(fishes, 256);
+  const part1 = evolveEfficient(fishes, 80);
+  console.log('Part 1:', part1);
+  const part2 = evolveEfficient(fishes, 256);
+  console.log('Part 2:', part2);
 })();

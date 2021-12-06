@@ -33,7 +33,6 @@ const playBingo = (bingoNumbers: string[], boards: string[][][]) => {
   let winner = false;
   bingoNumbers.some((bingoNumber) => {
     // mark bingoNumber
-    console.log(`Marking ${bingoNumber}`);
 
     currentBoards.forEach((board, boardIndex) => {
       const crosses: number[][] = [
@@ -53,11 +52,7 @@ const playBingo = (bingoNumbers: string[], boards: string[][][]) => {
               crosses[0][rowIndex] === board.length ||
               crosses[1][colIndex] === board[0].length
             ) {
-              console.log("Winner!");
-              console.log("Last drawn: ", bingoNumber);
-              console.log(board);
               const sumOfUnmarkedNumbers = getSumOfUnmarkedNumbers(board);
-              console.log("sumOfUnmarkedNumbers", sumOfUnmarkedNumbers);
               console.log(
                 "Part 1: ",
                 sumOfUnmarkedNumbers * Number.parseInt(bingoNumber)
@@ -78,7 +73,6 @@ const lastBingoWinner = (bingoNumbers: string[], boards: string[][][]) => {
   const wonBoards = new Array(boards.length).fill(false);
   bingoNumbers.some((bingoNumber) => {
     // mark bingoNumber
-    console.log(`Marking ${bingoNumber}`);
 
     currentBoards.forEach((board, boardIndex) => {
       if (wonBoards[boardIndex]) return;
@@ -99,18 +93,12 @@ const lastBingoWinner = (bingoNumbers: string[], boards: string[][][]) => {
               crosses[0][rowIndex] === board.length ||
               crosses[1][colIndex] === board[0].length
             ) {
-              console.log("Winner!");
-              console.log(`Board ${boardIndex}`);
               const numberOfWonBoards = wonBoards.filter((wb) => wb).length;
               if (numberOfWonBoards === boards.length - 1) {
-                console.log("1 board remaining");
                 const lastBoardToWinIndex = wonBoards.findIndex(
                   (wb) => wb === false
                 );
-                console.log(`Board ${lastBoardToWinIndex}`);
                 const sumOfUnmarkedNumbers = getSumOfUnmarkedNumbers(currentBoards[lastBoardToWinIndex]);
-                console.log(boards[lastBoardToWinIndex]);
-                console.log("sumOfUnmarkedNumbers", sumOfUnmarkedNumbers);
                 console.log(
                   "Part 2: ",
                   sumOfUnmarkedNumbers * Number.parseInt(bingoNumber)

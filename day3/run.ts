@@ -29,13 +29,7 @@ const calculatePowerConsumption = (numbers) => {
   const { gammaRate, epsilonRate } = getGammaAndEpsilon(numbers);
   const gammaRateDecimal = Number.parseInt(gammaRate.toString(), 2);
   const epsilonRateDecimal = Number.parseInt(epsilonRate.toString(), 2);
-  console.log({
-    gammaRate,
-    epsilonRate,
-    gammaRateDecimal,
-    epsilonRateDecimal,
-  });
-  console.log('Part 1:', { product: gammaRateDecimal * epsilonRateDecimal });
+  console.log('Part 1:', gammaRateDecimal * epsilonRateDecimal);
 };
 
 const calculateO2AndCO2Ratings = numbers => {
@@ -45,7 +39,6 @@ const calculateO2AndCO2Ratings = numbers => {
     const { gammaRate } = getGammaAndEpsilon(oxygenNumbers);
     const { epsilonRate } = getGammaAndEpsilon(co2Numbers);
 
-    console.log({ i, gammaRate, epsilonRate });
     if (oxygenNumbers.length > 1) {
       oxygenNumbers = oxygenNumbers.filter(oxygenNumber => oxygenNumber[i] === gammaRate.toString()[i]);
     }
@@ -53,7 +46,6 @@ const calculateO2AndCO2Ratings = numbers => {
       co2Numbers = co2Numbers.filter(co2Number => co2Number[i] === epsilonRate.toString()[i]);
     }
 
-    console.log({ oxygenNumbers, co2Numbers });
   }
   console.log('Part 2:', Number.parseInt(oxygenNumbers[0], 2) * Number.parseInt(co2Numbers[0], 2))
 }

@@ -19,7 +19,7 @@ const move = instructions => {
     }
   });
 
-  console.log('part 1', { horizontal, depth, product: horizontal * depth });
+  return horizontal * depth;
 }
 
 const move2 = instructions => {
@@ -36,12 +36,15 @@ const move2 = instructions => {
     }
   });
 
-  console.log('part 2', { horizontal, depth, product: horizontal * depth });
+  return horizontal * depth;
 }
 
 (() => {
 	const input = getInput();
   
-  move(input);
-  move2(input);
+  const part1 = move(input);
+  console.log('Part 1: ', part1);
+  
+  const part2 = move2(input);
+  console.log('Part 2: ', part2);
 })();
