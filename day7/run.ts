@@ -26,7 +26,8 @@ const run = (crabs: number[], fuelConsumption: (crab: number, pos: number) => nu
   const testPart2Expected = 168;
   const crabs = getInput();
   const fuelConsumptionPart1 = (crab: number, pos: number) => Math.abs(crab - pos);
-  const fuelConsumptionPart2 = (crab: number, pos: number) => new Array(Math.abs(crab - pos)).fill(0).map((_, index) => index + 1).reduce((sum, pos) => sum + pos, 0)
+  // const fuelConsumptionPart2 = (crab: number, pos: number) => new Array(Math.abs(crab - pos)).fill(0).map((_, index) => index + 1).reduce((sum, pos) => sum + pos, 0)
+  const fuelConsumptionPart2 = (crab: number, pos: number) => ((Math.abs(crab - pos) * (Math.abs(crab - pos) + 1)) / 2);
 
   const testPart1 = run(testCrabs, fuelConsumptionPart1);
   console.log('Test Part 1:', testPart1, testPart1 === testPart1Expected ? '✅' : `❌, expected ${testPart1Expected}` );
