@@ -5,12 +5,8 @@ const getInput = (useTestInput: boolean = false): number[] => {
 };
 
 const run = (crabs: number[], fuelConsumption: (crab: number, pos: number) => number): number => {
-  const min = Math.min(...crabs);
-  const max = Math.max(...crabs);
-
-  let alignPosition = -1;
-  let alignFuelNeed = 0;
-  for (var pos = min; pos <= max; pos += 1) {
+  let alignPosition = -1, alignFuelNeed = 0;
+  for (var pos = Math.min(...crabs); pos <= Math.max(...crabs); pos += 1) {
     const fuelNeed = crabs.reduce((fuelTotal, crab) => fuelTotal + fuelConsumption(crab, pos), 0);
     if (alignPosition === -1 || fuelNeed < alignFuelNeed) {
       alignPosition = pos;
