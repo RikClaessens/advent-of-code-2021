@@ -30,10 +30,6 @@ const checkCorrupt = (line: string): LineResult => {
       if (char === chunks[chunks.length - 1]) {
         chunks.splice(chunks.length - 1, 1);
       } else {
-        // console.log(
-        //   `${line} - Expected ${chunks[chunks.length - 1]
-        //   }, but found ${char} instead`
-        // );
         score += points[char];
         return true;
       }
