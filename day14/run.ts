@@ -71,8 +71,8 @@ const run = (formula: Formula, numberOfSteps: number = 10): number => {
 (() => {
   const input = getInput("input");
 
-  const runTest = (fileName: string, title: string, expectedResult: number) => {
-    const result = run(getInput(fileName));
+  const runTest = (fileName: string, title: string, expectedResult: number, numberOfSteps: number = 10) => {
+    const result = run(getInput(fileName), numberOfSteps);
     console.log(
       `Test Part ${title}:`,
       result,
@@ -81,6 +81,7 @@ const run = (formula: Formula, numberOfSteps: number = 10): number => {
   };
 
   runTest("test", "1", 1588);
+  runTest("test", "2", 2188189693529, 40);
 
   const part1 = run(input);
   console.log("Part 1:", part1);
